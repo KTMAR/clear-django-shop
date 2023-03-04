@@ -23,9 +23,9 @@
                     <td>
                         <a href="{{ product.get_absolute_url }}">
                             {% if product.image %}
-                            {% thumbnail product.image "480x334" crop="center" as im %}
-                                <img src="{{ im.url }}">
-                            {% endthumbnail %}
+                                {% thumbnail product.image "480x334" crop="center" as im %}
+                                    <img src="{{ im.url }}">
+                                {% endthumbnail %}
                             {% else %}
                                 <img src="{% static "img/no_image.png" %}" alt="">
                             {% endif %}
@@ -55,6 +55,8 @@
     </table>
     <p class="text-right">
         <a href="{% url "shop:product_list" %}" class="button light">Continue shopping</a>
-        <a href="#" class="button">Checkout</a>
+        <a href="{% url "orders:order_create" %}" class="button">
+            Checkout
+        </a>
     </p>
 {% endblock %}
